@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+  {% block title%}Login {% endblock %}
+
+
+      {% if user.is_active and user.is_staff %}
+
+      <h2>Sistema de Punto de Venta</h2>
+      <br/>
+      <ul>
+        <a href="/acerca/" class="btn btn-primary btn-large">Acerca del producto</a>
+      </ul>
+
+      {% else %}
+
+      <h1>Ingresa tu usuario</h1>
+      {% load url from future %}
+
+      {% block content %}
+
+      {% if form.errors %}
+      <p>Your username and password didn't match. Please try again.</p>
+      {% endif %}
+      </br>
+      <form method="post" action="{% url 'django.contrib.auth.views.login' %}" class="well form-inline">
+      {% csrf_token %}
+      {{ form.username }}
+      {{ form.password }}
+        <input type="submit" value="login" class="btn" />
+        <input type="hidden" name="next" value="{{ next }}" class="input-small" />
+      </form>
+      {% endblock %}
+
+      {% endif %}
+

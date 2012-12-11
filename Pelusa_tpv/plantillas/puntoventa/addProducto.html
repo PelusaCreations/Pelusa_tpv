@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+  {% block title%}Captura la informacion {% endblock %}
+
+       <h1>{% block section_name %}Captura la Información{% endblock %}</h1>
+      </br>
+      </br>
+
+
+      {%block content %}
+      <table class="table table-striped">
+
+
+          <form method="post" action="" id="formulario">{% csrf_token %}
+                    {{ formset.as_p }}
+              <p><input type="submit"  class="btn btn-primary" value="Guardar" /></p>
+          </form>
+          
+      </table>
+
+      {% endblock %}
+    

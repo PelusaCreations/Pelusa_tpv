@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+  {% block title%} Productos dados de alta {% endblock %}
+
+
+        <div class="row">
+
+          <div class="span4"><h1>{{Categoria.nombre}}</h1></div>
+
+        </div>
+
+   
+      </br>
+
+      {% block content %}
+
+      <table class="table table-striped"> 
+
+        <thead>
+          <tr>
+            <th>Lista de Productos</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
+          </tr>
+        </thead>  
+
+       <tbody>
+        
+          {% for productos in productos %}
+          <tr>
+            <td>{{ productos.descripcion }} </td>
+            <td>{{ productos.cantidad }} </td>
+            <td>{{ productos.status }} </td>
+            <td><a href="/producto/{{productos.id}}"><span class="label label-info">Editar</span></a></td>           
+
+          </tr>
+
+          {% endfor %}
+        </tbody>
+
+
+
+      </table>
+
+
+                        <a href="/reporte/categorias/{{Categoria.id}}" class="btn btn-primary btn-large">Imprimir</a>
+                        
+
+      {% endblock %}
+
+
+  

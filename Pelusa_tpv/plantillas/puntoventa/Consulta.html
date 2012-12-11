@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+  {% block title%}Consulta de producto {% endblock %}
+
+        <h1>{% block section_name %}Consulta tu producto{% endblock %}</h1>
+      
+
+      {% block content %}  
+      </br>
+      <form action="." method="GET">
+         <label for="q"></label>
+         <input type="text" name="q" value="{{ query|escape }}">
+         <input type="submit" value="Consulta" class="btn" style="margin-top:-9px">
+      </form>
+
+
+      <table class="table table-striped">
+
+        <thead>
+          <tr>
+            <th># Item</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Categoria</th>
+            <th>En Existencia</th>
+            <th>Estado</th>
+            <th></th>
+          </tr>
+        </thead>  
+
+        <tbody>
+
+          {% if query%}
+          {% if results%}
+          {% for Producto in results%}
+          <tr>
+            <td>{{ Producto.SKU }} </td>
+             <td>{{ Producto.descripcion }} </td>
+             <td>$ {{ Producto.precio }} </td>
+             <td> <a href="/categoria/{{Producto.categoria_id}}">{{ Producto.categoria }}</a> </td>
+             <td>{{ Producto.cantidad }} </td>
+             <td>{{ Producto.status }} </td>  
+             <td><a href="/producto/{{Producto.id}}"><span class="label label-info">Editar</span></a></td>           
+          </tr>
+          {% endfor%}
+           {% else%}     
+           <p>No hay resultados</p> {% endif%}
+          {% endif%} 
+
+
+        </tbody>
+      </table>
+      {% endblock %}
+
+
+  

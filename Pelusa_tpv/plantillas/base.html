@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title%}{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">JuguetyFiesta</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Consulta</a></li>
+              <li><a href="#">Vendedor</a></li>
+                <ul class="nav">
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <b class="caret"> </b> Adminstracion de Productos
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/addproducto/">Agregar Pruducto</a></li>
+                      <li><a href="/addcategoria/">Agregar Categorias</a></li>
+                      <li><a href="/addsubcategoria/">Agregar Subategorias</a></li>
+                      <li><a href="/addbodega/">Agregar Bodega</a></li>
+                      <li><a href="/addproveedor/">Agregar Proveedor</a></li>
+                      <li><a href="/categorias/">Categorias</a></li>
+                    </ul>
+                  </li>
+                </ul>
+
+            </ul>
+            <ul class="nav pull-right">
+            <li><a href="#">Hola {{ user.username }}</a></li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuenta <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/administracion/nuevousuario/">Administracion de usuarios</a></li>
+                <li><a href="#">Administracion de Bodega</a></li>
+                <li><a href="#">Administracion de la Cuenta</a></li>
+                <li><a href="/accounts/logout/">Cerrar sesion</a></li>
+              </ul>
+            </li>
+          </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+
+
+        <h1>{% block section_name %}{% endblock %}</h1>
+      </br>
+
+
+      {% block content %} {% endblock %}
+
+
+      </div>
+
+    
+      <footer>
+        <p>&copy; JuguetyFiesta 2012</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ STATIC_URL }}js/jquery.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-transition.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-alert.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-modal.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-dropdown.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-scrollspy.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-tab.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-tooltip.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-popover.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-button.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-collapse.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-carousel.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
